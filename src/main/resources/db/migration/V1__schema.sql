@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS users(
+  id serial PRIMARY KEY,
+  user_name VARCHAR(15) NOT NULL,
+  email VARCHAR(40) NOT NULL,
+  encrypted_password varchar(100) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT uk_users_email UNIQUE (email)
+);
+
+CREATE TABLE IF NOT EXISTS profiles(
+ id serial PRIMARY KEY,
+ user_id BIGINT NOT NULL REFERENCES users (id),
+ name VARCHAR (40) NOT NULL,
+ image_url VARCHAR (500),
+ title  VARCHAR (50) NOT NULL,
+ description VARCHAR(1000),
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE IF NOT EXISTS user_likes(
+ id serial PRIMARY KEY,
+ user_id BIGINT NOT NULL REFERENCES users (id),
+ following_id BIGINT NOT NULL REFERENCES users (id),
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ CONSTRAINT uk_user_likes_user_id_follower_id UNIQUE (user_id,following_id)
+);
+

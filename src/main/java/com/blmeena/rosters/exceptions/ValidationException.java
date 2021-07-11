@@ -1,0 +1,7 @@
+package com.blmeena.rosters.exceptions;
+
+public class ValidationException extends RuntimeException {
+    public ValidationException(String message) {
+        super(message);
+    }
+}
