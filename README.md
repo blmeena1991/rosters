@@ -1,6 +1,9 @@
 ## G2 Roster Employ APP
 ![App Screenshot](Roster-G2.png)
 
+## Pre Requirement installment required
+    Java 1.8 
+    Postgresql 
 ## Steps to Setup the Spring Boot Back end APP(rosters)
 
 1. **Clone the application**
