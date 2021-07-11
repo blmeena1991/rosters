@@ -10,7 +10,7 @@ public class G2CrowdTask {
     @Autowired
     G2CrowdService g2CrowdService;
 
-    //@Scheduled(cron = "0 0/1 * * * ?")
+    @Scheduled(cron = "0 0/10 * * * ?")
     public void updateEmployList() {
         g2CrowdService.updateEmployList();
     }
